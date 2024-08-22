@@ -23,7 +23,7 @@ export const resumes: Resume[] = [
     name: 'Annalise Xiao',
     email: 'xiao0332@umn.edu',
     year: 'Junior',
-    major: ["Data science"],
+    major: ["Data Science"],
     college: ["College of Science and Engineering"],
     visa: 'No',
     link: 'https://drive.google.com/file/d/1mFSg6BS5OlirMBfsMEM5mVAjEKFMK5mQ/preview',
