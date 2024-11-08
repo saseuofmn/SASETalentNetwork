@@ -38,6 +38,15 @@ export const resumes: Resume[] = [
     link: 'https://drive.google.com/file/d/1Aevql40Alvtvp7yemy34eKAuCTe7HTKu/preview',
   },
   {
+    name: 'Benjamin Sebastian',
+    email: 'sebas063@umn.edu',
+    year: 'Senior',
+    major: ["Computer Science"],
+    college: ["College of Science and Engineering"],
+    visa: 'No',
+    link: 'https://drive.google.com/file/d/1L0MCMYEIcqM9jRTBTcuGKmWrNe6RNebW/preview',
+  },
+  {
     name: 'Betty Huynh',
     email: 'huynh498@umn.edu',
     year: 'Senior',
@@ -89,7 +98,7 @@ export const resumes: Resume[] = [
     major: ["Computer Science","Graphic Design"],
     college: ["College of Science and Engineering","College of Design"],
     visa: 'Yes',
-    link: 'https://drive.google.com/file/d/1ukVhisyde1HVoqW67em-1mDXt06K_20_/preview',
+    link: 'https://drive.google.com/file/d/1dD2n2aYtkoNIyYMyzl0TgoMIKYORmfq9/preview',
   },
   {
     name: 'Joseph Hoang',
@@ -110,6 +119,15 @@ export const resumes: Resume[] = [
     link: 'https://drive.google.com/file/d/11zA1Z_N4QA3-cC02ENWiqleU98xh6-7W/preview',
   },
   {
+    name: 'Kevin Benny ',
+    email: 'kevin005@umn.edu',
+    year: 'Graduate',
+    major: ["Data Science"],
+    college: ["College of Science and Engineering"],
+    visa: 'Yes',
+    link: 'https://drive.google.com/file/d/15hjECzLBPSX85zRCDsh8HLHz-R8Au2BE/preview',
+  },
+  {
     name: 'Kriti Kamath',
     email: 'kamat095@umn.edu',
     year: 'Senior',
@@ -117,6 +135,15 @@ export const resumes: Resume[] = [
     college: ["College of Science and Engineering"],
     visa: 'Yes',
     link: 'https://drive.google.com/file/d/1_Y6k3wgRLQUeTsLe_-sNDePeNt0uLqDC/preview',
+  },
+  {
+    name: 'Kyle Gordon ',
+    email: 'gordo892@umn.edu',
+    year: 'Freshman',
+    major: ["Electrical Engineering"],
+    college: ["College of Science and Engineering"],
+    visa: 'No',
+    link: 'https://drive.google.com/file/d/1SXlBI2-ELam49CriH_FYknUdxBH9pOPM/preview',
   },
   {
     name: 'Lahari Hosur',
@@ -171,6 +198,15 @@ export const resumes: Resume[] = [
     college: ["College of Science and Engineering"],
     visa: 'Yes',
     link: 'https://drive.google.com/file/d/1wby791JrGmDMi9El3CfbqaelClKe5L0S/preview',
+  },
+  {
+    name: 'Saloni Shah',
+    email: 'shah0925@umn.edu',
+    year: 'Freshman',
+    major: ["Computer Engineering"],
+    college: ["College of Science and Engineering"],
+    visa: 'No',
+    link: 'https://drive.google.com/file/d/1UXiRvatH7aXEjp3FIvUKGVcVC5Mj87fO/preview',
   },
   {
     name: 'Shannon Vue',
