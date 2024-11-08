@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect } from 'react'
 import {
   Button,
   Flex,
@@ -6,31 +6,24 @@ import {
   Tbody,
   Box,
   Thead,
-  Td,
   Th,
   Tr,
   ChakraProvider,
-  MenuButton,
   Image,
-  Menu,
-  MenuList,
-  MenuItemOption,
   Text,
   Link,
   ListItem,
   UnorderedList,
-  MenuOptionGroup,
   useBreakpointValue,
   ResponsiveValue,
-  Portal,
-} from '@chakra-ui/react';
-import { IoMdArrowDropdown } from "react-icons/io";
-import { BiFilterAlt } from "react-icons/bi";
-import { FaLinkedin } from "react-icons/fa6";
-import { BsFillFileEarmarkPersonFill } from "react-icons/bs";
-import { IoMail } from "react-icons/io5";
-import { FaGoogleDrive } from "react-icons/fa";
-import { Resume, resumes } from './resume';
+} from '@chakra-ui/react'
+import { FaLinkedin } from "react-icons/fa6"
+import { BsFillFileEarmarkPersonFill } from "react-icons/bs"
+import { IoMail } from "react-icons/io5"
+import { FaGoogleDrive } from "react-icons/fa"
+import { Resume, resumes } from './resume'
+import TableHeader from './TableHeader'
+import TableData from './TableData'
 
 function App() {
   const [selectedResume, setSelectedResume] = useState(resumes[0].link);
@@ -77,10 +70,6 @@ function App() {
     setSortColumn(column);
     setSortOrder(value);
   };
-
-  // function convertPreviewToView(previewLink) {
-  //   return previewLink.replace('/preview', '/view?usp=sharing');
-  // }
 
   const handleClick = (resumeLink : string, index : number) => {
     setIsPDFViewVisible(true); 
@@ -208,140 +197,6 @@ function App() {
     },
   };  
 
-  interface TableHeaderProps {
-    title: string;
-    options: string[];
-    selectedOptions?: string[];
-    setSelectedOptions?: React.Dispatch<React.SetStateAction<string[]>>;
-    children?: ReactNode;
-    columnKey: keyof Resume;
-    filterable: boolean;
-  }
-  
-  const TableHeader: React.FC<TableHeaderProps> = ({
-    title,
-    options,
-    selectedOptions,
-    setSelectedOptions,
-    columnKey,
-    filterable,
-    ...props
-  }) => {
-    const isFilterApplied = filters[columnKey] ? filters[columnKey]!.length > 0 : false;
-
-    return (
-      <Th 
-        borderRight="1px" 
-        borderRightColor="gray.200" 
-        px={4} 
-        py={0}
-        position="relative"
-        {...props}
-      >
-        <Flex align="center" width="full">
-          <Box>
-            <Menu closeOnSelect={false} placement='bottom-start'>
-              <MenuButton 
-                as={Button} 
-                rightIcon={<IoMdArrowDropdown style={{color:"#4A5568"}}/>} 
-                variant="ghost" 
-                padding={0}
-                width="100%"
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  _hover: {
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
-                  },
-                  _active: {
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
-                  },
-                  _focus: {
-                    boxShadow: "none",
-                  },
-                }}
-              >
-                <Flex as="span" textAlign="left" flex="1">
-                  <Th borderBottom={0} padding={0}>{title}</Th>
-                  {isFilterApplied && <BiFilterAlt style={{ marginLeft: '4px', color: '#4A5568' }}/>}
-                </Flex>
-              </MenuButton>
-              <Portal>
-                <MenuList 
-                  overflow="visible" 
-                  maxHeight={400} 
-                  overflowY="auto"
-                  sx={scrollbarStyle}
-                  marginBottom={4}
-                >
-                  <MenuOptionGroup 
-                      type='radio' 
-                      value={sortOrder}
-                      onChange={(value) => handleSort(columnKey, value as string)}
-                      title="Sort"
-                  >
-                    <MenuItemOption value="asc">
-                      Ascending
-                    </MenuItemOption>
-                    <MenuItemOption value="desc">
-                      Descending
-                    </MenuItemOption>
-                  </MenuOptionGroup>
-                {filterable ? ( 
-                  <MenuOptionGroup 
-                    type='checkbox' 
-                    value={filters[columnKey] || []}
-                    onChange={(value) => handleOptionChange(columnKey, value)}
-                    title="Filter"
-                    fontSize="sm"
-                  >
-                    {options.sort().map((option) => (
-                      <MenuItemOption
-                        key={option}
-                        value={option}
-                        >
-                        {option}
-                      </MenuItemOption>
-                    ))}
-                  </MenuOptionGroup>
-                ) : null}
-                </MenuList>
-              </Portal>
-            </Menu>
-          </Box>
-        </Flex>
-      </Th>
-    );
-  };
-
-  interface TableDataProps {
-    children: ReactNode;
-    minWidth?: number;
-    maxWidth?: number;
-  }
-
-  const TableData: React.FC<TableDataProps> = ({ children, ...props }) => {
-    return (
-      <Td 
-        borderRight="1px" 
-        borderRightColor="gray.200" 
-        borderBottom="1px" 
-        borderBottomColor="gray.200" 
-        px={4}
-        py={2}
-        whiteSpace="nowrap" 
-        overflow="hidden" 
-        textOverflow="ellipsis"
-        {...props}
-      >
-        {children}
-      </Td>
-    );
-  };
-  
   return (
     <Flex alignItems="flex-start" gap={2} height="100vh">
       <Box 
@@ -452,6 +307,10 @@ function App() {
                     title={column.title}
                     options={column.options || []}
                     filterable={column.filterable}
+                    filters={filters}
+                    sortOrder={sortOrder}
+                    handleSort={handleSort}
+                    handleOptionChange = {handleOptionChange}
                   />
                 ))}
                 <Th borderRight="1px" borderRightColor="gray.200" px={4} py={2}> 
